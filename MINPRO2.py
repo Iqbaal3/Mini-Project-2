@@ -84,45 +84,60 @@ def Menu_utama():
 #function Hapus
 def hapus ():
     if len(konsumsi) == 0:
-        ("Belum ada makanan yang di tambahkan")  
+        print("Belum ada makanan yang di tambahkan")  
     else: 
         nomor = 0
         for nomor in range(len(konsumsi)):
             nama, berat = konsumsi[nomor]
             print(f"{nomor + 1} {nama}: {berat} gram")
-        
-        hapus = int(input("Masukkan nomor makanan yang ingin dihapus: ")) - 1
-        if 0 <= hapus < len(konsumsi):
-            terhapus = konsumsi.pop(hapus)
-            print(f"{terhapus[0]} sebanyak {terhapus[1]} gram telah dihapus.")
-        else:
-            print("Nomor tidak valid")
+        try :
+            hapus = int(input("Masukkan nomor makanan yang ingin dihapus: ")) - 1
+            if 0 <= hapus < len(konsumsi):
+                terhapus = konsumsi.pop(hapus)
+                print(f"{terhapus[0]} sebanyak {terhapus[1]} gram telah dihapus.")
+            else:
+                print("Nomor tidak valid")
+        except ValueError:
+            print("masukkan angka")
+        except KeyboardInterrupt:
+            print("Jangan Mengklik CTRL + C saat program berlangsung!")
+        except EOFError:
+            print("Jgn tekan CTRL + Z ya!!!")
+
 
 #function edit
 def edit ():
     if len(konsumsi) == 0:
-        ("Belum ada makanan yang di tambahkan")
+        print("Belum ada makanan yang di tambahkan")
     else:
         nomor = 0
         for nomor in range(len(konsumsi)):
             nama, berat = konsumsi[nomor]
             print(f"{nomor + 1} {nama}: {berat} gram")
         
-        nomor = int(input("Masukkan nomor makanan yang ingin diubah: ")) - 1
-        if 0 <= nomor < len(konsumsi):
-            makanan = input("Ubah menjadi makanan apa?: ")
-            if makanan in data_makanan:
-                berat = float(input("Masukkan berat makanan dalam gram (contoh: 100): "))
-                if berat > 0:
-                    terhapus = konsumsi.pop(nomor)
-                    konsumsi.insert(nomor,(makanan, berat))
-                    print(f"{terhapus[0]} telah di ubah menjadi {makanan} .") 
-                else:
-                    print("Maaf, Berat harus lebih dari 0 gram")
-            else :
-                print("Maaf, Makanan tidak ditemukan dalam daftar progam")
-        else:
-            print("Nomor tidak valid")
+        try :
+            nomor = int(input("Masukkan nomor makanan yang ingin diubah: ")) - 1
+            if 0 <= nomor < len(konsumsi):
+                makanan = input("Ubah menjadi makanan apa?: ")
+                if makanan in data_makanan:
+                    berat = float(input("Masukkan berat makanan dalam gram (contoh: 100): "))
+                    if berat > 0:
+                        terhapus = konsumsi.pop(nomor)
+                        konsumsi.insert(nomor,(makanan, berat))
+                        print(f"{terhapus[0]} telah di ubah menjadi {makanan} .") 
+                    else:
+                        print("Maaf, Berat harus lebih dari 0 gram")
+                else :
+                    print("Maaf, Makanan tidak ditemukan dalam daftar progam")
+            else:
+                print("Nomor tidak valid")
+        except ValueError:
+            print("masukkan angka")
+        except KeyboardInterrupt:
+            print("Jangan Mengklik CTRL + C saat program berlangsung!")
+        except EOFError:
+            print("Jgn tekan CTRL + Z ya!!!")
+
 
 #Function Tambah Makanan
 def tambah ():
@@ -194,7 +209,7 @@ if status == 1:
             hitung()
             break
         else:
-            ("perintah tidak valid")
+            print("perintah tidak valid")
 elif status == 2:
     while True :
         print("=====================PENGGUNA BASIC=======================")
@@ -212,6 +227,6 @@ elif status == 2:
             hitung()
             break
         else:
-            ("perintah tidak valid")
+            print("perintah tidak valid")
 else:
-    ("tidak valid")
+    print("tidak valid")
