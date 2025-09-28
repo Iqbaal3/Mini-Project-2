@@ -1,6 +1,8 @@
 # Mini-Project-2 Praktikum DDP
 **Nama  : Iqbal Nurriz Ramadhan**
+
 **Kelas : Sistem Informasi (B)**
+
 **NIM    : 2509116067**
 
 Mini Project yang saya buat disini pengembangan dari tema sebelumnya yaitu Program "Pelacak Asupan Kalori & Protein Harian" Sesuai dengan namanya program ini bertujuan menghitung jumlah Kalori & Protein yang telah di konsumsi. Program ini bermanfaat untuk orang orang yang sedang melakukan Bulking ataupun Cutting (Diet).  Program ini sudah menerapkan CRUD (Create, Read, Update, Delete) yang di wakili masing-masing pilihan yaitu:
